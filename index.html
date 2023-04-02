@@ -3,31 +3,7 @@
 
 <head>
 	<title>Time Calculator</title>
-	<script>
-		const timeInputElement = document.getElementById("start-time");
-		function formatTimes(times) {
-			output = "Times: <br>"
-			output += "<ul>"
-			output += "<li>"
-			output += times.join("</li><li>")
-			output += "</li>"
-			return output
-		}
-
-		function calculateTimes() {
-			var inputTime = timeInputElement.value;
-			var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
-
-			var times = [];
-			for (var i = 0; i < 10; i++) {
-				date = new Date(date.getTime() + 90 * 60 * 1000); // add 90 minutes
-				times.push(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-			}
-
-			var output = document.getElementById("output");
-			output.innerHTML = formatTimes(times);
-		}
-	</script>
+	
 </head>
 
 <body>
@@ -37,5 +13,29 @@
 	<button onclick="calculateTimes()">Calculate Times</button>
 	<div id="output"></div>
 </body>
+<script>
+	const timeInputElement = document.getElementById("start-time");
+	function formatTimes(times) {
+		output = "Times: <br>"
+		output += "<ul>"
+		output += "<li>"
+		output += times.join("</li><li>")
+		output += "</li>"
+		return output
+	}
 
+	function calculateTimes() {
+		var inputTime = timeInputElement.value;
+		var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
+
+		var times = [];
+		for (var i = 0; i < 10; i++) {
+			date = new Date(date.getTime() + 90 * 60 * 1000); // add 90 minutes
+			times.push(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+		}
+
+		var output = document.getElementById("output");
+		output.innerHTML = formatTimes(times);
+	}
+</script>
 </html>
