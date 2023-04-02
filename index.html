@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Time Calculator</title>
+	<script>
+		function calculateTimes() {
+			var inputTime = document.getElementById("start-time").value;
+			var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
+
+			var times = [];
+			for (var i = 0; i < 10; i++) {
+				date = new Date(date.getTime() + 90 * 60 * 1000); // add 90 minutes
+				times.push(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+			}
+
+			var output = document.getElementById("output");
+			output.innerHTML = "Times: " + times.join(", ");
+		}
+	</script>
+</head>
+
+<body>
+	<h1>Time Calculator</h1>
+	<label for="start-time">Enter a start time:</label>
+	<input type="time" id="start-time" name="start-time">
+	<button onclick="calculateTimes()">Calculate Times</button>
+	<div id="output"></div>
+</body>
+
+</html>
