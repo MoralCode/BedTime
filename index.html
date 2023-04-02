@@ -15,8 +15,11 @@
 </body>
 <script>
 	const timeInputElement = document.getElementById("start-time");
-	function formatTimes(times) {
-		output = "Times: <br>"
+
+	function formatTimes(start_time, times) {
+		output = "If you go to bed at " 
+		output += formatTime(start_time)
+		output += ", then your sleep cycles complete at approximately these times: <br>"
 		output += "<ul>"
 		output += "<li>"
 		output += times.join("</li><li>")
