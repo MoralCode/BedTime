@@ -31,6 +31,10 @@
 		return date.toLocaleTimeString([], Object.assign({ hour: '2-digit', minute: '2-digit' }, options, {}));
 	}
 
+	function ms_to_hours(ms){
+		return ms/(60*60*1000)
+	}
+
 	function calculateTimes() {
 		var inputTime = timeInputElement.value;
 		var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
@@ -40,7 +44,7 @@
 
 		for (var i = 0; i < 10; i++) {
 			date = new Date(date.getTime() + SLEEP_CYCLE_INTERVAL_MS); // add 90 minutes
-			times.push(formatTime(date));
+			times.push(formatTime(date) + " (" + (i + 1) +"  cycles - " + (ms_to_hours((i + 1) * SLEEP_CYCLE_INTERVAL_MS)) + " hours sleep)");
 		}
 
 		var output = document.getElementById("output");
