@@ -24,21 +24,25 @@
 		return output
 	}
 
+	function formatTime(date, options) {
+		return date.toLocaleTimeString([], Object.assign({ hour: '2-digit', minute: '2-digit' }, options, {}));
+	}
+
 	function calculateTimes() {
 		var inputTime = timeInputElement.value;
 		var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
-
+		var initialDate = date;
 		var times = [];
 		for (var i = 0; i < 10; i++) {
 			date = new Date(date.getTime() + 90 * 60 * 1000); // add 90 minutes
-			times.push(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+			times.push(formatTime(date));
 		}
 
 		var output = document.getElementById("output");
-		output.innerHTML = formatTimes(times);
+		output.innerHTML = formatTimes(initialDate, times);
 	}
 
 	let newtime = new Date();
-	timeInputElement.value = newtime.getHours() + ':' + newtime.getMinutes();
+	timeInputElement.value = formatTime(newtime, {hour12: false});
 </script>
 </html>
