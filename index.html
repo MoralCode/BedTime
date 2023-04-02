@@ -36,8 +36,10 @@
 		var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
 		var initialDate = date;
 		var times = [];
+		const SLEEP_CYCLE_INTERVAL_MS = 90 * 60 * 1000
+
 		for (var i = 0; i < 10; i++) {
-			date = new Date(date.getTime() + 90 * 60 * 1000); // add 90 minutes
+			date = new Date(date.getTime() + SLEEP_CYCLE_INTERVAL_MS); // add 90 minutes
 			times.push(formatTime(date));
 		}
 
