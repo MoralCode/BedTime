@@ -4,6 +4,16 @@
 <head>
 	<title>Time Calculator</title>
 	<script>
+
+		function formatTimes(times) {
+			output = "Times: <br>"
+			output += "<ul>"
+			output += "<li>"
+			output += times.join("</li><li>")
+			output += "</li>"
+			return output
+		}
+
 		function calculateTimes() {
 			var inputTime = document.getElementById("start-time").value;
 			var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
@@ -15,7 +25,7 @@
 			}
 
 			var output = document.getElementById("output");
-			output.innerHTML = "Times: " + times.join(", ");
+			output.innerHTML = formatTimes(times);
 		}
 	</script>
 </head>
