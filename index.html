@@ -4,7 +4,7 @@
 <head>
 	<title>Time Calculator</title>
 	<script>
-
+		const timeInputElement = document.getElementById("start-time");
 		function formatTimes(times) {
 			output = "Times: <br>"
 			output += "<ul>"
@@ -15,7 +15,7 @@
 		}
 
 		function calculateTimes() {
-			var inputTime = document.getElementById("start-time").value;
+			var inputTime = timeInputElement.value;
 			var date = new Date("January 1, 1970 " + inputTime); // add arbitrary date for consistent parsing
 
 			var times = [];
