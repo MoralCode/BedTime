@@ -50,7 +50,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
           //button bar for incrementing and decrementing time
           TextButton(
             onPressed: () {
-              adjustTime(minutes: 10)
+              adjustTime(minutes: 10);
             },
             child: const Text("add 10 min"),
           )
