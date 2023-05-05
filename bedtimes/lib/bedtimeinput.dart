@@ -5,6 +5,8 @@ class BedTimeInput extends StatelessWidget {
 
   TimeOfDay time = TimeOfDay.now();
 
+  void onTimeChanged() {}
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
