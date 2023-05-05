@@ -52,7 +52,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
             onPressed: () {
               adjustTime(minutes: 10)
             },
-            child: Text("add 10 min"),
+            child: const Text("add 10 min"),
           )
           //sleep cycle results
         ]));
