@@ -18,9 +18,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
       newHours += 1;
     }
     setState(() {
-      setState(() {
-        time = time.replacing(hour: newHours, minute: newMinutes);
-      });
+      time = time.replacing(hour: newHours, minute: newMinutes);
     });
   }
   // This widget is the root of your application.
