@@ -29,6 +29,19 @@ class BedTimeInput extends StatelessWidget {
             // axis because Columns are vertical (the cross axis would be
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[Text(time.format(context))]));
+            children: <Widget>[
+          Text(time.format(context)),
+          //button bar for incrementing and decrementing time
+          TextButton(
+            onPressed: () {
+              // time =
+              time = time.replacing(minute: time.minute + 10);
+              //  + Duration(minutes: 10);
+              onTimeChanged();
+            },
+            child: Text("add 10 min"),
+          )
+          //sleep cycle results
+        ]));
   }
 }
