@@ -10,6 +10,19 @@ class BedTimeInput extends StatefulWidget {
 class _BedTimeInputState extends State<BedTimeInput> {
   TimeOfDay time = TimeOfDay.now();
 
+  void adjustTime({int? hours, int? minutes}) {
+    int newMinutes = time.minute + (minutes ?? 0);
+    int newHours = time.hour + (hours ?? 0);
+    if (newMinutes >= 60) {
+      newMinutes = newMinutes % 60;
+      newHours += 1;
+    }
+    setState(() {
+      setState(() {
+        time = time.replacing(hour: newHours, minute: newMinutes);
+      });
+    });
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -37,18 +50,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
           //button bar for incrementing and decrementing time
           TextButton(
             onPressed: () {
-              int newMinutes = time.minute + 10;
-              int newHours = time.hour;
-              if (newMinutes >= 60) {
-                newMinutes = newMinutes % 60;
-                newHours += 1;
-              }
-              setState(() {
-                setState(() {
-                  time = time.replacing(hour: newHours, minute: newMinutes);
-                });
-              });
-              //  + Duration(minutes: 10);
+              adjustTime(minutes: 10)
             },
             child: Text("add 10 min"),
           )
