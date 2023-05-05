@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BedTimeInput extends StatelessWidget {
-  const BedTimeInput({super.key});
+  BedTimeInput({super.key});
+
+  TimeOfDay time = TimeOfDay.now();
 
   // This widget is the root of your application.
   @override
@@ -25,6 +27,6 @@ class BedTimeInput extends StatelessWidget {
             // axis because Columns are vertical (the cross axis would be
             // horizontal).
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[Text("hello")]));
+            children: <Widget>[Text(time.format(context))]));
   }
 }
