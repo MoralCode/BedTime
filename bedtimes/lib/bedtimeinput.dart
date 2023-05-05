@@ -37,9 +37,15 @@ class _BedTimeInputState extends State<BedTimeInput> {
           //button bar for incrementing and decrementing time
           TextButton(
             onPressed: () {
+              int newMinutes = time.minute + 10;
+              int newHours = time.hour;
+              if (newMinutes >= 60) {
+                newMinutes = time.minute;
+                newHours += 1;
+              }
               setState(() {
                 setState(() {
-                  time = time.replacing(minute: time.minute + 10);
+                  time = time.replacing(hour: newHours, minute: newMinutes);
                 });
               });
               //  + Duration(minutes: 10);
