@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BedTimeInput extends StatelessWidget {
-  BedTimeInput({super.key});
+class BedTimeInput extends StatefulWidget {
+  const BedTimeInput({super.key});
 
+  @override
+  State<BedTimeInput> createState() => _BedTimeInputState();
+}
+
+class _BedTimeInputState extends State<BedTimeInput> {
   TimeOfDay time = TimeOfDay.now();
-
-  void onTimeChanged() {}
 
   // This widget is the root of your application.
   @override
@@ -34,10 +37,12 @@ class BedTimeInput extends StatelessWidget {
           //button bar for incrementing and decrementing time
           TextButton(
             onPressed: () {
-              // time =
-              time = time.replacing(minute: time.minute + 10);
+              setState(() {
+                setState(() {
+                  time = time.replacing(minute: time.minute + 10);
+                });
+              });
               //  + Duration(minutes: 10);
-              onTimeChanged();
             },
             child: Text("add 10 min"),
           )
