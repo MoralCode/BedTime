@@ -40,7 +40,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
               int newMinutes = time.minute + 10;
               int newHours = time.hour;
               if (newMinutes >= 60) {
-                newMinutes = time.minute;
+                newMinutes = newMinutes % 60;
                 newHours += 1;
               }
               setState(() {
