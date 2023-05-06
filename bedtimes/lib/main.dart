@@ -1,3 +1,4 @@
+import 'package:bedtimes/timecontroller.dart';
 import 'package:flutter/material.dart';
 
 import 'bedtimeinput.dart';
@@ -50,6 +51,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TimeController tc = TimeController();
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -67,7 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: BedTimeInput(),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              BedTimeInput(timeController: tc),
+            ]),
       ),
     );
   }
