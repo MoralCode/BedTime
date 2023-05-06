@@ -17,6 +17,9 @@ class _BedTimeInputState extends State<BedTimeInput> {
     if (newMinutes >= 60) {
       newMinutes = newMinutes % 60;
       newHours += 1;
+    } else if (newMinutes < 0) {
+      newHours -= 1;
+      newMinutes += 60;
     }
     setState(() {
       timeController.replaceTime(hours: newHours, minutes: newMinutes);
