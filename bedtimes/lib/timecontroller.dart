@@ -7,4 +7,9 @@ class TimeController extends ChangeNotifier {
     time = time;
     notifyListeners();
   }
+
+  void replaceTime({int? hours, int? minutes}) {
+    time = time.replacing(hour: hours, minute: minutes);
+    notifyListeners();
+  }
 }
