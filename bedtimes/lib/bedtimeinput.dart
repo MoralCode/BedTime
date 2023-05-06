@@ -9,17 +9,17 @@ class BedTimeInput extends StatefulWidget {
 }
 
 class _BedTimeInputState extends State<BedTimeInput> {
-  TimeOfDay time = TimeOfDay.now();
+  TimeController timeController = TimeController();
 
   void adjustTime({int? hours, int? minutes}) {
-    int newMinutes = time.minute + (minutes ?? 0);
-    int newHours = time.hour + (hours ?? 0);
+    int newMinutes = timeController.time.minute + (minutes ?? 0);
+    int newHours = timeController.time.hour + (hours ?? 0);
     if (newMinutes >= 60) {
       newMinutes = newMinutes % 60;
       newHours += 1;
     }
     setState(() {
-      time = time.replacing(hour: newHours, minute: newMinutes);
+      timeController.replaceTime(hours: newHours, minutes: newMinutes);
     });
   }
 
@@ -29,7 +29,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-          Text(time.format(context)),
+          Text(timeController.time.format(context)),
           //button bar for incrementing and decrementing time
           TextButton(
             onPressed: () {
