@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class BedTimeInput extends StatefulWidget {
   final TimeController timeController;
+  //TODO: figure out how to give this controller a default value
 
   BedTimeInput({super.key, required this.timeController});
 
