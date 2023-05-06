@@ -1,3 +1,4 @@
+import 'package:bedtimes/extensions.dart';
 import 'package:bedtimes/timecontroller.dart';
 import 'package:flutter/material.dart';
 
@@ -12,17 +13,11 @@ class BedTimeInput extends StatefulWidget {
 
 class _BedTimeInputState extends State<BedTimeInput> {
   void adjustTime({int? hours, int? minutes}) {
-    int newMinutes = widget.timeController.time.minute + (minutes ?? 0);
-    int newHours = widget.timeController.time.hour + (hours ?? 0);
-    if (newMinutes >= 60) {
-      newMinutes = newMinutes % 60;
-      newHours += 1;
-    } else if (newMinutes < 0) {
-      newHours -= 1;
-      newMinutes += 60;
-    }
+    TimeOfDay newTime =
+        widget.timeController.time.adjustTime(hours: hours, minutes: minutes);
+
     setState(() {
-      widget.timeController.replaceTime(hours: newHours, minutes: newMinutes);
+      widget.timeController.setTime(newTime);
     });
   }
 
