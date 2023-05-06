@@ -1,3 +1,4 @@
+import 'package:bedtimes/extensions.dart';
 import 'package:bedtimes/timecontroller.dart';
 import 'package:flutter/material.dart';
 
@@ -54,12 +55,19 @@ class _MyHomePageState extends State<MyHomePage> {
   TimeController tc = TimeController();
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    List<Widget> contents = [];
+
+    contents.add(BedTimeInput(timeController: tc));
+
+    for (var i = 0; i < 8; i++) {
+      TimeOfDay time = tc.time;
+      Duration dur = Duration(minutes: 90 * (i + 1));
+      time = time.adjustTime(minutes: dur.inMinutes);
+      // time.format(context)
+      contents.add(
+          Text(time.format(context) + "(${i + 1} cycles, ${dur.toString()})"));
+    }
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -70,10 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              BedTimeInput(timeController: tc),
-            ]),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: contents,
+        ),
       ),
     );
   }
