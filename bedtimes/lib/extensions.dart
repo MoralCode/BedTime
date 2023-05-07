@@ -7,8 +7,8 @@ extension TimeOfDayExtension on TimeOfDay {
     int newMinutes = minute + (minutes ?? 0);
     int newHours = hour + (hours ?? 0);
     if (newMinutes.abs() >= 60) {
+      newHours += newMinutes ~/ 60;
       newMinutes = newMinutes % 60;
-      newHours += 1;
     } else if (newMinutes < 0) {
       newHours -= 1;
       newMinutes +=
