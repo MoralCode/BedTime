@@ -3,13 +3,6 @@ import 'package:flutter/material.dart';
 extension TimeOfDayExtension on TimeOfDay {
 
   ///Adjust the time by the given number of hours and minutes, accounting for over/underflow
-  //TODO: tests
-  // forward
-  // back
-  // forward over edge of one hour
-  // back over edge of one hour
-  // forward over edge of many hours
-  // back over edge of many hours
   TimeOfDay adjustTime({int? hours, int? minutes}) {
     int newMinutes = minute + (minutes ?? 0);
     int newHours = hour + (hours ?? 0);
