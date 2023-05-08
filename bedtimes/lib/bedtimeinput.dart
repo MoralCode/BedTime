@@ -13,9 +13,8 @@ class BedTimeInput extends StatefulWidget {
 }
 
 class _BedTimeInputState extends State<BedTimeInput> {
-  void adjustTime({int? hours, int? minutes}) {
-    TimeOfDay newTime = widget.timeController.time
-        .adjustTime(hours: hours ?? 0, minutes: minutes ?? 0);
+  void plusMinutes(int minutes) {
+    TimeOfDay newTime = widget.timeController.time.plusMinutes(minutes);
 
     setState(() {
       widget.timeController.setTime(newTime);
@@ -32,13 +31,13 @@ class _BedTimeInputState extends State<BedTimeInput> {
           //button bar for incrementing and decrementing time
           TextButton(
             onPressed: () {
-              adjustTime(minutes: 10);
+              plusMinutes(10);
             },
             child: const Text("add 10 min"),
           ),
           TextButton(
             onPressed: () {
-              adjustTime(minutes: -10);
+              plusMinutes(-10);
             },
             child: const Text("remove 10 min"),
           ),

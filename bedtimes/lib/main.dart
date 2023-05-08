@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     for (var i = 0; i < 8; i++) {
       TimeOfDay time = tc.time;
       Duration dur = Duration(minutes: 90 * (i + 1));
-      time = time.adjustTime(minutes: dur.inMinutes);
+      time = time.plusMinutes(dur.inMinutes);
       // time.format(context)
       contents.add(
           Text(time.format(context) + "(${i + 1} cycles, ${dur.toString()})"));
