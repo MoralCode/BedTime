@@ -21,6 +21,12 @@ class _BedTimeInputState extends State<BedTimeInput> {
     });
   }
 
+  void resetTime() {
+    setState(() {
+      widget.timeController.setTime(TimeOfDay.now());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,6 +40,12 @@ class _BedTimeInputState extends State<BedTimeInput> {
               plusMinutes(10);
             },
             child: const Text("add 10 min"),
+          ),
+          TextButton(
+            onPressed: () {
+              resetTime();
+            },
+            child: const Text("reset"),
           ),
           TextButton(
             onPressed: () {
