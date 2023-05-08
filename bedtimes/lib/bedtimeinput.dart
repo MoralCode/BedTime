@@ -14,8 +14,8 @@ class BedTimeInput extends StatefulWidget {
 
 class _BedTimeInputState extends State<BedTimeInput> {
   void adjustTime({int? hours, int? minutes}) {
-    TimeOfDay newTime =
-        widget.timeController.time.adjustTime(hours: hours, minutes: minutes);
+    TimeOfDay newTime = widget.timeController.time
+        .adjustTime(hours: hours ?? 0, minutes: minutes ?? 0);
 
     setState(() {
       widget.timeController.setTime(newTime);
