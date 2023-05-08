@@ -64,8 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
       Duration dur = Duration(minutes: 90 * (i + 1));
       time = time.plusMinutes(dur.inMinutes);
       // time.format(context)
-      contents.add(
-          Text(time.format(context) + "(${i + 1} cycles, ${dur.toString()})"));
+      String content =
+          "${time.format(context)} (${i + 1} cycles, ${dur.inHours}h";
+      int minutesSleep = dur.inMinutes - (dur.inHours * 60);
+      if (minutesSleep != 0) {
+        content += " ${minutesSleep}m";
+      }
+      content += " sleep)";
+      contents.add(Text(content));
     }
 
     return Scaffold(
