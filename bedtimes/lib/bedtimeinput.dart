@@ -41,7 +41,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
                   onPressed: () {
                     plusMinutes(-10);
                   },
-                  icon: Icon(Icons.remove)),
+                  icon: const Icon(Icons.remove)),
               TextButton(
                 onPressed: () {
                   resetTime();
@@ -52,7 +52,7 @@ class _BedTimeInputState extends State<BedTimeInput> {
                   onPressed: () {
                     plusMinutes(10);
                   },
-                  icon: Icon(Icons.add)),
+                  icon: const Icon(Icons.add)),
             ],
           )
         ]));
