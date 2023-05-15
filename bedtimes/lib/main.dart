@@ -54,6 +54,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TimeController tc = TimeController();
 
+  _MyHomePageState() {
+    tc.addListener(() {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> contents = [];
