@@ -34,26 +34,30 @@ class _BedTimeInputState extends State<BedTimeInput> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
           Text(widget.timeController.time.format(context)),
-          //button bar for incrementing and decrementing time
-          TextButton(
-            onPressed: () {
-              plusMinutes(10);
-            },
-            child: const Text("add 10 min"),
-          ),
-          TextButton(
-            onPressed: () {
-              resetTime();
-            },
-            child: const Text("reset"),
-          ),
-          TextButton(
-            onPressed: () {
-              plusMinutes(-10);
-            },
-            child: const Text("remove 10 min"),
-          ),
-          //sleep cycle results
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //button bar for incrementing and decrementing time
+              TextButton(
+                onPressed: () {
+                  plusMinutes(10);
+                },
+                child: const Text("add 10 min"),
+              ),
+              TextButton(
+                onPressed: () {
+                  resetTime();
+                },
+                child: const Text("reset"),
+              ),
+              TextButton(
+                onPressed: () {
+                  plusMinutes(-10);
+                },
+                child: const Text("remove 10 min"),
+              ),
+            ],
+          )
         ]));
   }
 }
