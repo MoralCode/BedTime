@@ -37,25 +37,22 @@ class _BedTimeInputState extends State<BedTimeInput> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //button bar for incrementing and decrementing time
-              TextButton(
-                onPressed: () {
-                  plusMinutes(10);
-                },
-                child: const Text("add 10 min"),
-              ),
+              IconButton(
+                  onPressed: () {
+                    plusMinutes(-10);
+                  },
+                  icon: Icon(Icons.remove)),
               TextButton(
                 onPressed: () {
                   resetTime();
                 },
                 child: const Text("reset"),
               ),
-              TextButton(
-                onPressed: () {
-                  plusMinutes(-10);
-                },
-                child: const Text("remove 10 min"),
-              ),
+              IconButton(
+                  onPressed: () {
+                    plusMinutes(10);
+                  },
+                  icon: Icon(Icons.add)),
             ],
           )
         ]));
