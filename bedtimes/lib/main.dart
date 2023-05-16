@@ -1,3 +1,4 @@
+import 'package:bedtimes/cyclelabel.dart';
 import 'package:bedtimes/extensions.dart';
 import 'package:bedtimes/timecontroller.dart';
 import 'package:flutter/material.dart';
@@ -68,17 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     for (var i = 0; i < 8; i++) {
       TimeOfDay time = tc.time;
-      Duration dur = Duration(minutes: 90 * (i + 1));
-      time = time.plusMinutes(dur.inMinutes);
-      // time.format(context)
-      String content =
-          "${time.format(context)} (${i + 1} cycles, ${dur.inHours}h";
-      int minutesSleep = dur.inMinutes - (dur.inHours * 60);
-      if (minutesSleep != 0) {
-        content += " ${minutesSleep}m";
-      }
-      content += " sleep)";
-      contents.add(Text(content));
+      contents.add(CycleLabel(time: time, cycleNumber: i + 1));
     }
 
     return Scaffold(
