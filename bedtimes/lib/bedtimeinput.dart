@@ -33,7 +33,10 @@ class _BedTimeInputState extends State<BedTimeInput> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-          Text(widget.timeController.time.format(context)),
+          Text(
+            widget.timeController.time.format(context),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
