@@ -56,6 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
   TimeController tc = TimeController();
 
   _MyHomePageState() {
+    //listen to changes in time and trigger a render of this component
+    //to update the time estimates
     tc.addListener(() {
       setState(() {});
     });
