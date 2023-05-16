@@ -95,32 +95,36 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Text("If you go to bed at..."),
             BedTimeInput(timeController: tc),
-            DataTable(columns: const <DataColumn>[
-              DataColumn(
-                label: Expanded(
-                  child: Text(
-                    'Sleep Cycle',
-                    style: TextStyle(fontStyle: FontStyle.italic),
+            DataTable(
+                columnSpacing: 15.0,
+                dataRowHeight: 35.0,
+                columns: const <DataColumn>[
+                  DataColumn(
+                    label: Expanded(
+                      child: Text(
+                        'Sleep Cycle',
+                        style: TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Text(
-                    'Wake Up Time',
-                    style: TextStyle(fontStyle: FontStyle.italic),
+                  DataColumn(
+                    label: Expanded(
+                      child: Text(
+                        'Wake Up Time',
+                        style: TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              DataColumn(
-                label: Expanded(
-                  child: Text(
-                    'Amount of Sleep',
-                    style: TextStyle(fontStyle: FontStyle.italic),
+                  DataColumn(
+                    label: Expanded(
+                      child: Text(
+                        'Amount of Sleep',
+                        style: TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ], rows: contents)
+                ],
+                rows: contents)
           ],
         ),
       ),
