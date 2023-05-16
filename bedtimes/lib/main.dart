@@ -93,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            Text("If you go to bed at..."),
             BedTimeInput(timeController: tc),
             DataTable(columns: const <DataColumn>[
               DataColumn(
