@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<DataRow> contents = [];
 
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 10; i++) {
       TimeOfDay time = tc.time;
       Duration dur = Duration(minutes: 90 * (i + 1));
       time = time.plusMinutes(dur.inMinutes);
