@@ -39,6 +39,11 @@ class _BedTimeInputState extends State<BedTimeInput> {
             children: [
               IconButton(
                   onPressed: () {
+                    plusMinutes(-30);
+                  },
+                  icon: const Icon(Icons.remove_circle_outline)),
+              IconButton(
+                  onPressed: () {
                     plusMinutes(-10);
                   },
                   icon: const Icon(Icons.remove)),
@@ -53,6 +58,11 @@ class _BedTimeInputState extends State<BedTimeInput> {
                     plusMinutes(10);
                   },
                   icon: const Icon(Icons.add)),
+              IconButton(
+                  onPressed: () {
+                    plusMinutes(30);
+                  },
+                  icon: const Icon(Icons.add_circle_outline)),
             ],
           )
         ]));
