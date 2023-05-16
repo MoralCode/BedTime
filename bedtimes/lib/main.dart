@@ -65,15 +65,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> contents = [];
-
-    contents.add(BedTimeInput(timeController: tc));
+    List<DataRow> contents = [];
 
     for (var i = 0; i < 8; i++) {
       TimeOfDay time = tc.time;
       Duration dur = Duration(minutes: 90 * (i + 1));
       time = time.plusMinutes(dur.inMinutes);
-      contents.add(CycleLabel(time: time, cycleNumber: i + 1));
+      contents.add(DataRow(
+        cells: <DataCell>[
+          DataCell(Text("${i + 1}")),
+          DataCell(Text(time.format(context))),
+          DataCell(Text("${dur.inHours}:$minutesSleep")),
+        ],
+      ));
     }
 
     return Scaffold(
@@ -87,7 +91,35 @@ class _MyHomePageState extends State<MyHomePage> {
         // in the middle of the parent.
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: contents,
+          children: [
+            BedTimeInput(timeController: tc),
+            DataTable(columns: const <DataColumn>[
+              DataColumn(
+                label: Expanded(
+                  child: Text(
+                    'Sleep Cycle',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+              DataColumn(
+                label: Expanded(
+                  child: Text(
+                    'Wake Up Time',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+              DataColumn(
+                label: Expanded(
+                  child: Text(
+                    'Amount of Sleep',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+            ], rows: contents)
+          ],
         ),
       ),
     );
