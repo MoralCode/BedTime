@@ -75,7 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
         cells: <DataCell>[
           DataCell(Text("${i + 1}")),
           DataCell(Text(time.format(context))),
-          DataCell(Text("${dur.inHours}:$minutesSleep")),
+          DataCell(Text(
+              "${dur.inHours}:${(dur.inMinutes % 60).toString().padLeft(2, "0")}")),
         ],
       ));
     }
