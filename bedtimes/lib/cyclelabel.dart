@@ -18,8 +18,7 @@ class CycleLabel extends StatelessWidget {
     Duration dur = Duration(minutes: cycleDuration * cycleNumber);
     // time = time.plusMinutes(dur.inMinutes);
     // time.format(context)
-    String content =
-        "${time.format(context)} ($cycleNumber cycles, ${dur.inHours}h";
+    String content = "$cycleNumber : ${time.format(context)} (${dur.inHours}h";
 
     int minutesSleep = dur.inMinutes - (dur.inHours * 60);
     if (minutesSleep != 0) {
