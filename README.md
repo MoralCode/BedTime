@@ -1,6 +1,6 @@
 # bedtimes
 
-![a screenshot of the main app screen, showing the current time, a buttin bar for adjusting the time, and a table of the next 10 sleep cycles and their corresponding wake-up times](../media/screenshot.png)
+![a screenshot of the main app screen, showing the current time, a buttin bar for adjusting the time, and a table of the next 10 sleep cycles and their corresponding wake-up times](media/screenshot.png)
 
 A simple Flutter app to calculate sleep cycles.
 
