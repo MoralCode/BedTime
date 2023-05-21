@@ -1,4 +1,4 @@
-package com.example.bedtimes
+package com.adriancedwards.bedtime
 
 import io.flutter.embedding.android.FlutterActivity
 
