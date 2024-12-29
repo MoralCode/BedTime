@@ -42,3 +42,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+## generated icons
+
+android/app/src/main/res/*
+ios/Runner/Assets.xcassets/AppIcon.appiconset/*
