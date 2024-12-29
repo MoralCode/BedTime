@@ -15,3 +15,7 @@ This is a local-only app intended to be a quick and easy-to-use utility on your 
 ### Generating app icons
 
 flutter pub run flutter_launcher_icons:main
+
+### Running
+
+flutter run
