@@ -93,6 +93,8 @@ flutter:
 flutter_launcher_icons:
   image_path: 'icons/icon.png'
   android: true
+  adaptive_icon_background: "#673ab7"
+  adaptive_icon_foreground: "icons/icon.png"
   ios: true
   remove_alpha_ios: true # WARNING: Icons with alpha channel are not allowed in the Apple App Store.
 
